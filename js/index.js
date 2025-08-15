@@ -30,7 +30,9 @@ for (let i = 0; i < inputNum.length; i++) {
     ) {
       if (inputNum[i - 1]) {
         inputNum[i - 1].disabled = false;
+        inputNum[i - 1].value ="";
         inputNum[i - 1].focus();
+        inputNum[i-1].style.animation = "lines 1s linear infinite";
         e.preventDefault();
       }
     }
