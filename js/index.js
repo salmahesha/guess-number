@@ -142,7 +142,7 @@ function inputsCorrect() {
 document.addEventListener("input", function (e) {
   console.log(e);
 });
-if(screen.width < 1280){
+if(screen.width <= 1280){
   enterBtn.classList.remove('d-none');
 }
 // i.test(navigator.userAgent)
