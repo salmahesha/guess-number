@@ -42,12 +42,6 @@ for (let i = 0; i < inputNum.length; i++) {
 document.addEventListener("keydown", function (e) {
   if (e.key == "Enter" && inputsCorrect()) {
     samePlace();
-  }else if(enterBtn && inputsCorrect()){
-    
-  enterBtn.addEventListener('click',function(e){
-    samePlace();
-  })
-
   }
 });
 //enter the number that will guess
@@ -56,16 +50,27 @@ if (num) {
   num.addEventListener("input", function (e) {
     if (num.value.length === 4) {
       num.readOnly = true;
-      if(enterBtn){enterBtn.disabled = true;}
       pressEnter.classList.remove("d-none");
+      if(enterBtn){
+        enterBtn.disabled = false;
+        enterBtn.addEventListener('click',function(e){
+           localStorage.setItem("number", num.value);
+          window.location.href = "board.html";
+        })
+      }
       document.addEventListener("keydown", function (e) {
         if (e.key == "Enter") {
           localStorage.setItem("number", num.value);
           window.location.href = "board.html";
         }
       });
+      num.addEventListener('touchstart',function(e){
+        pressEnter.classList.add("d-none");
+        num.readOnly = false;
+      });
       num.addEventListener("keydown", function (e) {
         if ((e.key === "Backspace" || e.key === "Delete") && num.readOnly) {
+          pressEnter.classList.add("d-none");
           num.readOnly = false;
         }
       });
@@ -77,7 +82,6 @@ if (againBtn) {
     window.location.href = "index.html";
   });
 }
-
 function samePlace() {
   var correctNumber = 0;
   var count = 0;
@@ -142,7 +146,8 @@ function inputsCorrect() {
 document.addEventListener("input", function (e) {
   console.log(e);
 });
-if(screen.width <= 1280){
+
+if(screen.width < 1280){
   enterBtn.classList.remove('d-none');
 }
 // i.test(navigator.userAgent)
