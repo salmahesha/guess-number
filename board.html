@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>guess number</title>
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="shortcut icon" href="./images/numbers.jpg"
+    type="image/x-icon">
+</head>
+
+<body>
+  <div class="home vh-100">
+    <div class="container">
+      <div class="inner position-relative vh-100 d-flex flex-column justify-content-center align-items-center">
+
+        <div class="content text-primary text-center">
+          <div class="guess">
+
+            <h1 class="fw-bold">Guess number: </h1>
+          </div>
+          <p class="text-warning attempt fw-bold">You have <span>10</span> attempts</p>
+        </div>
+        <p class="press d-none  text-danger fw-lighter">Press enter</p>
+        <div class="inputs d-flex">
+
+          <input type="text" class="mx-2 text-info text-center" autofocus>
+          <input type="text" class="mx-2 text-info text-center">
+          <input type="text" class="mx-2 text-info text-center">
+          <input type="text" class="mx-2 text-info text-center">
+
+        </div>
+        <div class="rules p-3">
+        </div>
+      </div>
+      <div class="winner d-none position-absolute end-0 start-0 top-0 bottom-0 d-flex justify-content-center align-items-center">
+        <div class="win text-center bg-black p-5  fa-2x border border-3 rounded-3 border-white">
+
+          <p class="p-3">
+            
+          </p>
+          <button class="btn btn-outline-light">Play again</button>
+        </div>
+      </div>
+
+      <!-- <div class="lose d-none position-absolute end-0 start-0 top-0 bottom-0 d-flex justify-content-center align-items-center">
+        <div class="win text-center bg-black p-5  fa-2x border border-3 rounded-3 border-white">
+
+          <p class="correct-num text-danger p-3">
+          </p>
+          <button class="btn btn-outline-light">Again</button>
+        </div>
+      </div> -->
+      
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
