@@ -7,6 +7,7 @@ var win = document.querySelector(".winner");
 var againBtn = document.querySelector("button");
 var attempts = document.querySelector(".attempt span");
 var winner = document.querySelector(".win p");
+var enterBtn =document.querySelector(".enterBtn");
 var attempt = 10;
 
 // clear animation
@@ -41,6 +42,12 @@ for (let i = 0; i < inputNum.length; i++) {
 document.addEventListener("keydown", function (e) {
   if (e.key == "Enter" && inputsCorrect()) {
     samePlace();
+  }else if(enterBtn && inputsCorrect()){
+    
+  enterBtn.addEventListener('click',function(e){
+    samePlace();
+  })
+
   }
 });
 //enter the number that will guess
@@ -49,6 +56,7 @@ if (num) {
   num.addEventListener("input", function (e) {
     if (num.value.length === 4) {
       num.readOnly = true;
+      if(enterBtn){enterBtn.disabled = true;}
       pressEnter.classList.remove("d-none");
       document.addEventListener("keydown", function (e) {
         if (e.key == "Enter") {
@@ -69,6 +77,7 @@ if (againBtn) {
     window.location.href = "index.html";
   });
 }
+
 function samePlace() {
   var correctNumber = 0;
   var count = 0;
@@ -128,6 +137,13 @@ function inputsCorrect() {
   pressEnter.classList.remove("d-none");
   return true;
 }
+
+
 document.addEventListener("input", function (e) {
   console.log(e);
 });
+if(screen.width < 1280){
+  enterBtn.classList.remove('d-none');
+}
+// i.test(navigator.userAgent)
+// console.log(navigator.userAgent);
